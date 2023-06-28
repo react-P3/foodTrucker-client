@@ -1,0 +1,40 @@
+Define MVP - Truck of the world
+- create/login/logout users
+- displaying trucks with details (kind of food)
+    - upcoming venues
+
+Plan Models
+ 
+- Users --> Create Read
+    - protected routes
+    - authentication
+
+- Truck --> Create Read Update delete
+    - name
+    - category
+    - image // bonus
+    - owner : ref User // bonus
+        - Events: [
+            {
+                - name
+                - start date and end date
+                - operation time in venue during event
+                - venue
+            }
+            ] --> Create Read Update delete
+    
+    
+- Bootstrap
+
+Bonus
+    - light and dark mode
+    - link to Instagram/Facebook
+    - search by location 
+    - map
+    - footer with links
+
+
+
+
+Names: 
+    - Food Trucker 
