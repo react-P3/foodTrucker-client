@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import AddEvent from "../components/AddEvent";
-import EventsCard from "../components/EventsCard";
+import EventCard from "../components/EventCard";
 
 const API_URL = "http://localhost:5005";
 
-function FoodtruckDetailsPage(props) {
-  const [foodtruck, setFoodtruck] = useState(null);
+function FoodtruckDetailsPage() {
+  const [foodtruck, setFoodtruck] = useState({});
   const { foodtruckId } = useParams();
 
   const getFoodtruck = () => {
@@ -48,12 +48,13 @@ function FoodtruckDetailsPage(props) {
         </>
       )}
 
-       <AddEvent refreshFoodtruck={getFoodtruck} FoodtruckId={foodtruck._id} /> 
+       <AddEvent refreshFoodtrucks={getFoodtruck} FoodtruckId={foodtruck._id} /> 
 
-      {foodtruck &&
+      {foodtruck.events &&
         foodtruck.events.map((event) => (
-          <EventsCard key={event._id} {...event} />
-        ))} 
+          <EventCard key={event.id} {...event} />
+        ))}
+       
 
       <Link to="/foodtrucks">
         <button>Back to Foodtrucks</button>
