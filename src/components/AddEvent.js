@@ -13,8 +13,8 @@ function AddEvent(props) {
 
   function handleSubmit(e) {
         e.preventDefault();
-        const requestBody = { name, description, location, address, time, date };
-
+        const requestBody = { name, description, location, address, time, date, foodtruckId };
+        const {foodtruckId} = props;
 
         axios
             .post(`${API_URL}/api/foodtrucks`, requestBody)
