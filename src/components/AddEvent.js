@@ -1,12 +1,4 @@
-import {
-  useState,
-  name,
-  description,
-  location,
-  address,
-  time,
-  date,
-} from "react";
+import { useState } from "react";
 import axios from "axios";
 import Container from "react-bootstrap/Container";
 import { Button, Row, Form } from "react-bootstrap";
@@ -35,7 +27,7 @@ function AddEvent(props) {
     };
 
     axios
-      .post(`${API_URL}/api/foodtrucks`, requestBody)
+      .post(`${API_URL}/api/events`, requestBody)
       .then((response) => {
         // Reset the state
         setName("");
@@ -54,7 +46,7 @@ function AddEvent(props) {
     <Container className="AddEvent">
       <h3>Add Event</h3>
 
-      <Form onSubmit={handleSubmit} class="form-control w-50">
+      <Form xs="auto" onSubmit={handleSubmit}>
         <Row>
           <label>Name:</label>
           <input
