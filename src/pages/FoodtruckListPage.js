@@ -32,10 +32,13 @@ function FoodtruckListPage() {
       </div>
 
       <AddFoodtruck refreshFoodtrucks={getAllFoodtrucks} />
-
+    <Row>
       {foodtrucks.map((foodtruck) => (
+        <Col xs={3} className="mb-5" key={`${data.id}`}>
         <FoodtruckCard key={foodtruck._id} {...foodtruck} />
+        </Col>
       ))}
+      </Row>
     </div>
   );
 }

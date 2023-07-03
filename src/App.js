@@ -1,4 +1,5 @@
 import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import FoodtruckDetailsPage from './pages/FoodtruckDetailsPage';
 import FoodtruckListPage from './pages/FoodtruckListPage';
 import HomePage from './pages/HomePage';
