@@ -1,16 +1,27 @@
 import { Link } from "react-router-dom";
+import { Card, Button } from "react-bootstrap";
 
 // We are deconstructing props object directly in the parentheses of the function
-function FoodtruckCard ( { name, category, _id, owner } ) {
-  
+function FoodtruckCard({ name, category, _id, owner }) {
   return (
-    <div className="FoodtruckCard card">
-      <Link to={`/foodtrucks/${_id}`}>
-      <p style={{ maxWidth: "400px" }}>{name} </p>
-      </Link>
+    <Card className="FoodtruckCard card">
+      <Card.Img variant="top" />
+      <Card.Body className="d-flex flex-column">
+        <div className="d-flex mb-2 justify-content-between">
+          <Card.Title className="mb-0 font-weight-bold">{name}</Card.Title>
+        </div>
+        <Button
+          href={`/foodtrucks/${_id}`}
+          className="mt-auto font-weight-bold"
+          variant="success"
+          block
+        >
+          See Details
+        </Button>
+      </Card.Body>
       <p style={{ maxWidth: "400px" }}>{category} </p>
       <p style={{ maxWidth: "400px" }}>{owner} </p>
-    </div>
+    </Card>
   );
 }
 
