@@ -37,11 +37,11 @@ function FoodtruckDetailsPage() {
         </>
       )}
 
-      <AddEvent refreshFoodtrucks={getFoodtruck} FoodtruckId={foodtruck._id} />
+      <AddEvent refreshFoodtrucks={getFoodtruck} foodtruckId={foodtruck._id} />
 
       {foodtruck.events &&
         foodtruck.events.map((event) => (
-          <EventCard key={event.id} {...event} />
+          <EventCard key={event._id} {...event} />
         ))}
     </div>
   );

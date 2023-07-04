@@ -11,9 +11,7 @@ function FoodtruckCard({ name, category, _id, owner }) {
         <Button
           href={`/foodtrucks/${_id}`}
           className="mt-auto font-weight-bold"
-          variant="success"
-          block
-        >
+          variant="success">
           See Details
         </Button>
       </Card.Body>

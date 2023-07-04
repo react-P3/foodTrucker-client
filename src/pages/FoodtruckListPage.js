@@ -33,8 +33,8 @@ function FoodtruckListPage() {
         <br />
 
         {foodtrucks.map((foodtruck) => (
-          <Col xs={3} className="mb-5">
-            <FoodtruckCard key={foodtruck._id} {...foodtruck} />
+          <Col key={foodtruck._id} xs={3} className="mb-5">
+            <FoodtruckCard {...foodtruck}/>
           </Col>
         ))}
       </Row>
