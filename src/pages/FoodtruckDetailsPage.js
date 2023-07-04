@@ -5,7 +5,7 @@ import AddEvent from "../components/AddEvent";
 import EventCard from "../components/EventCard";
 import Navbar from "../components/Navbar";
 
-const API_URL = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_SERVER_URL;
 
 function FoodtruckDetailsPage() {
   const [foodtruck, setFoodtruck] = useState({});

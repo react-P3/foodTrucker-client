@@ -3,7 +3,7 @@ import axios from "axios";
 import Container from "react-bootstrap/Container";
 import { Button, Row, Form } from "react-bootstrap";
 
-const API_URL = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_SERVER_URL;
 
 function AddFoodtruck(props) {
   const [name, setName] = useState("");
