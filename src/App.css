@@ -36,42 +36,22 @@
     transform: rotate(360deg);
   }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 63ded139855e47fcfd380fecb6b2fe728095e221
 html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-<<<<<<< HEAD
-*,*:before, *:after {
-  -webkit-box-sizing: inherit;
-  box-sizing: inherit;
-} 
-=======
 *,
 *:before,
 *:after {
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
 }
->>>>>>> 63ded139855e47fcfd380fecb6b2fe728095e221
 
 body {
   margin: 20px 0;
   padding: 0;
   line-height: 1;
-<<<<<<< HEAD
-  font-family: 'Roboto', sans-serif;
-  color: #202020;
-  background-color: #fbfbfb;
-  font-smooth: always;
-  -webkit-font-smoothing: antialiased; 
-  -moz-osx-font-something: grayscale;
-}
-=======
   font-family: "Roboto", sans-serif;
   color: #202020;
   background-color: #fbfbfb;
@@ -115,4 +95,3 @@ label {
   font-weight: 600;
   color: rgb(34, 34, 34);
 }
->>>>>>> 63ded139855e47fcfd380fecb6b2fe728095e221

@@ -32,17 +32,6 @@ function FoodtruckListPage() {
         <AddFoodtruck refreshFoodtrucks={getAllFoodtrucks} />
         <br />
 
-<<<<<<< HEAD
-      <AddFoodtruck refreshFoodtrucks={getAllFoodtrucks} />
-    <Row>
-      {foodtrucks.map((foodtruck) => (
-        <Col xs={3} className="mb-5" key={`${data.id}`}>
-        <FoodtruckCard key={foodtruck._id} {...foodtruck} />
-        </Col>
-      ))}
-      </Row>
-    </div>
-=======
         {foodtrucks.map((foodtruck) => (
           <Col xs={3} className="mb-5">
             <FoodtruckCard key={foodtruck._id} {...foodtruck} />
@@ -50,7 +39,6 @@ function FoodtruckListPage() {
         ))}
       </Row>
     </Container>
->>>>>>> 63ded139855e47fcfd380fecb6b2fe728095e221
   );
 }
 
