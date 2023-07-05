@@ -6,10 +6,12 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import { Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import NavBar from "./components/Navbar";
 
 function App() {
   return (
     <div className="App">
+      <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/foodtrucks" element={<FoodtruckListPage />}></Route>

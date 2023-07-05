@@ -3,11 +3,13 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import AddEvent from "../components/AddEvent";
 import EventCard from "../components/EventCard";
-import Navbar from "../components/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../context/auth.context";
 
 const API_URL = process.env.REACT_APP_SERVER_URL;
 
 function FoodtruckDetailsPage() {
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   const [foodtruck, setFoodtruck] = useState({});
   const { foodtruckId } = useParams();
 
@@ -28,8 +30,6 @@ function FoodtruckDetailsPage() {
   // note : add forms for edit and add button
   return (
     <div className="FoodtruckDetails">
-      <Navbar />
-
       {foodtruck && (
         <>
           <h1>{foodtruck.name}</h1>
@@ -37,8 +37,12 @@ function FoodtruckDetailsPage() {
         </>
       )}
 
-      <AddEvent refreshFoodtrucks={getFoodtruck} foodtruckId={foodtruck._id} />
-
+      {isLoggedIn && (
+        <AddEvent
+          refreshFoodtrucks={getFoodtruck}
+          foodtruckId={foodtruck._id}
+        />
+      )}
       {foodtruck.events &&
         foodtruck.events.map((event) => (
           <EventCard key={event._id} {...event} />

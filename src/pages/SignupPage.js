@@ -1,5 +1,3 @@
-
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -76,11 +74,9 @@ function SignupPage(props) {
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button
-             // href="/foodtrucks"
-              type="submit"
-              className="btn btn-primary"
-            >Sign Up</button>
+            <button type="submit" className="btn btn-primary">
+              Sign Up
+            </button>
           </div>
         </div>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
