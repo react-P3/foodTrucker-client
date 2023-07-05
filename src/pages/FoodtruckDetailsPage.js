@@ -3,8 +3,12 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import AddEvent from "../components/AddEvent";
 import EventCard from "../components/EventCard";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
+import EditFoodTruck from "../components/EditFoodtruckModal";
 
 const API_URL = process.env.REACT_APP_SERVER_URL;
 
@@ -29,25 +33,30 @@ function FoodtruckDetailsPage() {
 
   // note : add forms for edit and add button
   return (
-    <div className="FoodtruckDetails">
-      {foodtruck && (
-        <>
-          <h1>{foodtruck.name}</h1>
-          <p>{foodtruck.category}</p>
-        </>
-      )}
+    <Container className="FoodtruckDetails">
+      <Row>
+        {foodtruck && (
+          <>
+            <h1>{foodtruck.name}</h1>
+            <p>{foodtruck.category}</p>
+            <EditFoodTruck />
+          </>
+        )}
 
-      {isLoggedIn && (
-        <AddEvent
-          refreshFoodtrucks={getFoodtruck}
-          foodtruckId={foodtruck._id}
-        />
-      )}
-      {foodtruck.events &&
-        foodtruck.events.map((event) => (
-          <EventCard key={event._id} {...event} />
-        ))}
-    </div>
+        {isLoggedIn && (
+          <AddEvent
+            refreshFoodtrucks={getFoodtruck}
+            foodtruckId={foodtruck._id}
+          />
+        )}
+        {foodtruck.events &&
+          foodtruck.events.map((event) => (
+            <Col key={event._id} xs={3} className="mb-5">
+              <EventCard {...event} />
+            </Col>
+          ))}
+      </Row>
+    </Container>
   );
 }
 
