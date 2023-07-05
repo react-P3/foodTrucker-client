@@ -1,6 +1,6 @@
 import { Card, Button } from "react-bootstrap";
 
-function FoodtruckCard({ name, category, _id, owner }) {
+function FoodtruckCard({ name, category, _id, owner, imageUrl }) {
   return (
     <Card className="FoodtruckCard card">
       <Card.Img variant="top" />
@@ -15,6 +15,7 @@ function FoodtruckCard({ name, category, _id, owner }) {
           See Details
         </Button>
       </Card.Body>
+      <p style={{ maxWidth: "400px" }}>{imageUrl}</p>
       <p style={{ maxWidth: "400px" }}>{category} </p>
       <p style={{ maxWidth: "400px" }}>{owner} </p>
     </Card>
