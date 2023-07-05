@@ -21,6 +21,7 @@ function FoodtruckDetailsPage() {
     axios
       .get(`${API_URL}/api/foodtrucks/${foodtruckId}`)
       .then((response) => {
+        console.log(response.data);
         const oneFoodtruck = response.data;
         setFoodtruck(oneFoodtruck);
       })

@@ -1,6 +1,7 @@
 import { Card, Button } from "react-bootstrap";
+import EditEvent from "./EditEventModal";
 
-function EventCard({ name, description, location, address, time, date }) {
+function EventCard({ _id, name, description, location, address, time, date }) {
   return (
     <Card className="EventCard card">
       <Card.Img variant="top" />
@@ -14,8 +15,7 @@ function EventCard({ name, description, location, address, time, date }) {
       <p style={{ maxWidth: "400px" }}>{address} </p>
       <p style={{ maxWidth: "400px" }}>{time} </p>
       <p style={{ maxWidth: "400px" }}>{date} </p>
-      <Button type="edit">Edit</Button>
-      <Button type="delete">Delete</Button>
+      <EditEvent id={_id} />
     </Card>
   );
 }

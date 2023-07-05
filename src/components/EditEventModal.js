@@ -4,46 +4,58 @@ import Modal from "react-bootstrap/Modal";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
-
 const API_URL = process.env.REACT_APP_SERVER_URL;
 
-function EditFoodTruck(props) {
+function EditEvent({ id }) {
   const [name, setName] = useState("");
-  const [category, setCategory] = useState("");
-  const [owner, setOwner] = useState("");
+  const [description, setDescription] = useState("");
+  const [location, setLocation] = useState("");
+  const [address, setAddress] = useState("");
+  const [time, setTime] = useState("");
+  const [date, setDate] = useState("");
   const [show, setShow] = useState(false);
-  const { foodtruckId } = useParams();
+
   const navigate = useNavigate();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const reload = () => window.location.reload();
-
+  console.log(id);
   useEffect(() => {
     axios
-      .get(`${API_URL}/api/foodtrucks/${foodtruckId}`)
+      .get(`${API_URL}/api/events/${id}`)
       .then((response) => {
-        const oneFoodtruck = response.data;
-        setName(oneFoodtruck.name);
-        setCategory(oneFoodtruck.category);
-        setOwner(oneFoodtruck.owner);
+        const oneEvent = response.data;
+        setName(oneEvent.name);
+        setDescription(oneEvent.description);
+        setLocation(oneEvent.location);
+        setAddress(oneEvent.address);
+        setTime(oneEvent.time);
+        setDate(oneEvent.date);
       })
       .catch((error) => console.log(error));
-  }, [foodtruckId]);
+  }, [id]);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { name, category, owner };
+    const requestBody = {
+      name,
+      description,
+      location,
+      address,
+      time,
+      date,
+    };
     axios
-      .put(`${API_URL}/api/foodtrucks/${foodtruckId}`, requestBody)
+      .put(`${API_URL}/api/events/${id}`, requestBody)
       .then((response) => {
         toast.success("event edited successfully!");
       })
       .catch((error) => console.log(error));
   };
 
-  const deleteFoodtruck = () => {
+  const deleteEvent = () => {
     axios
-      .delete(`${API_URL}/api/foodtrucks/${foodtruckId}`)
+      .delete(`${API_URL}/api/events/${id}`)
       .then(() => {
         navigate("/foodtrucks");
       })
@@ -53,7 +65,7 @@ function EditFoodTruck(props) {
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        Edit FoodTruck
+        Edit Event
       </Button>
 
       <Modal show={show} onHide={handleClose} onExit={reload}>
@@ -73,41 +85,74 @@ function EditFoodTruck(props) {
                     setName(e.target.value);
                   }}
                   className="form-control mt-1"
-                  placeholder="e.g Van Diesel"
                 />
               </div>
               <div className="form-group mt-3">
-                <label>Category</label>
+                <label>Description</label>
                 <input
                   type="text"
-                  name="category"
-                  value={category}
+                  name="description"
+                  value={description}
                   onChange={(e) => {
-                    setCategory(e.target.value);
+                    setDescription(e.target.value);
                   }}
                   className="form-control mt-1"
-                  placeholder="Email Address"
                 />
               </div>
               <div className="form-group mt-3">
-                <label>Owner</label>
+                <label>Location</label>
                 <input
                   type="text"
-                  name="owner"
-                  value={owner}
+                  name="location"
+                  value={location}
                   onChange={(e) => {
-                    setOwner(e.target.value);
+                    setLocation(e.target.value);
                   }}
                   className="form-control mt-1"
-                  placeholder="Password"
+                />
+              </div>
+              <div className="form-group mt-3">
+                <label>Adress</label>
+                <input
+                  type="text"
+                  name="address"
+                  value={address}
+                  onChange={(e) => {
+                    setAddress(e.target.value);
+                  }}
+                  className="form-control mt-1"
+                />
+              </div>
+              <div className="form-group mt-3">
+                <label>Time</label>
+                <input
+                  type="text"
+                  name="time"
+                  value={time}
+                  onChange={(e) => {
+                    setTime(e.target.value);
+                  }}
+                  className="form-control mt-1"
+                />
+              </div>
+              <div className="form-group mt-3">
+                <label>Date</label>
+                <input
+                  type="date"
+                  name="Date"
+                  value={date}
+                  onChange={(e) => {
+                    setDate(e.target.value);
+                  }}
+                  className="form-control mt-1"
                 />
               </div>
             </div>
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="danger" onClick={deleteFoodtruck}>
-            Delete FoodTruck
+          <Button variant="danger" onClick={deleteEvent}>
+            Delete event
           </Button>
           <Button variant="secondary" onClick={handleClose}>
             Close
@@ -121,4 +166,4 @@ function EditFoodTruck(props) {
   );
 }
 
-export default EditFoodTruck;
+export default EditEvent;

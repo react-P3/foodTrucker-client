@@ -7,10 +7,11 @@ import SignupPage from "./pages/SignupPage";
 import { Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/Navbar";
-
+import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <div className="App">
+      <Toaster />
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
