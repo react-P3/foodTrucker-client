@@ -15,13 +15,14 @@ function EditFoodTruck(props) {
   const navigate = useNavigate();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const reload = () => window.location.reload();
 
   useEffect(() => {
     axios
       .get(`${API_URL}/api/foodtrucks/${foodtruckId}`)
       .then((response) => {
         const oneFoodtruck = response.data;
-        setName(oneFoodtruck.Name);
+        setName(oneFoodtruck.name);
         setCategory(oneFoodtruck.category);
         setOwner(oneFoodtruck.owner);
       })
@@ -39,20 +40,28 @@ function EditFoodTruck(props) {
       .catch((error) => console.log(error));
   };
 
+  const deleteFoodtruck = () => {
+    axios
+      .delete(`${API_URL}/api/foodtrucks/${foodtruckId}`)
+      .then(() => {
+        navigate("/foodtrucks");
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
         Edit FoodTruck
       </Button>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} onExit={reload}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Edit Your Food Truck</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form className="Auth-form" onSubmit={handleFormSubmit}>
             <div className="Auth-form-content">
-              <h3 className="Auth-form-title">Edit Your Food Truck</h3>
               <div className="form-group mt-3">
                 <label>Name</label>
                 <input
@@ -63,7 +72,7 @@ function EditFoodTruck(props) {
                     setName(e.target.value);
                   }}
                   className="form-control mt-1"
-                  placeholder="e.g Jane Doe"
+                  placeholder="e.g Van Diesel"
                 />
               </div>
               <div className="form-group mt-3">
@@ -96,10 +105,13 @@ function EditFoodTruck(props) {
           </form>
         </Modal.Body>
         <Modal.Footer>
+          <Button variant="danger" onClick={deleteFoodtruck}>
+            Delete FoodTruck
+          </Button>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={handleFormSubmit}>
             Save Changes
           </Button>
         </Modal.Footer>

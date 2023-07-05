@@ -36,6 +36,7 @@ function AddFoodtruck(props) {
             name="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            required
           />
         </Row>
 
@@ -46,6 +47,7 @@ function AddFoodtruck(props) {
             name="category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
+            required
           />
         </Row>
         <Row className="mb-3">
@@ -55,6 +57,7 @@ function AddFoodtruck(props) {
             name="Owner"
             value={owner}
             onChange={(e) => setOwner(e.target.value)}
+            required
           />
         </Row>
 
