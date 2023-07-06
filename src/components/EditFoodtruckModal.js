@@ -109,9 +109,6 @@ function EditFoodTruck(props) {
           <Button variant="danger" onClick={deleteFoodtruck}>
             Delete FoodTruck
           </Button>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
           <Button variant="primary" onClick={handleFormSubmit}>
             Save Changes
           </Button>

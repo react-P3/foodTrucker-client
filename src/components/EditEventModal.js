@@ -154,9 +154,6 @@ function EditEvent({ id }) {
           <Button variant="danger" onClick={deleteEvent}>
             Delete event
           </Button>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
           <Button variant="primary" onClick={handleFormSubmit}>
             Save Changes
           </Button>
