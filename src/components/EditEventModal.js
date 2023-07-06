@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
+import { AuthContext } from "../context/auth.context";
+
 const API_URL = process.env.REACT_APP_SERVER_URL;
 
 function EditEvent({ id }) {
@@ -14,6 +16,8 @@ function EditEvent({ id }) {
   const [time, setTime] = useState("");
   const [date, setDate] = useState("");
   const [show, setShow] = useState(false);
+  const { user } = useContext(AuthContext);
+  const [createdBy, setCreatedBy] = useState("");
 
   const navigate = useNavigate();
   const handleClose = () => setShow(false);
@@ -63,10 +67,10 @@ function EditEvent({ id }) {
   };
 
   return (
-    <>
+    <>{user._id === createdBy &&
       <Button variant="primary" onClick={handleShow}>
         Edit Event
-      </Button>
+      </Button>}
 
       <Modal show={show} onHide={handleClose} onExit={reload}>
         <Modal.Header closeButton>

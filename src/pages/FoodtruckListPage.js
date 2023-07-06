@@ -1,18 +1,20 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useContext } from "react";
 import AddFoodtruck from "../components/AddFoodtruck";
 import FoodtruckCard from "../components/FoodtruckCard";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useContext } from "react";
+
+import Navbar from "../components/Navbar";
 import { AuthContext } from "../context/auth.context";
 
 const API_URL = process.env.REACT_APP_SERVER_URL;
 
 function FoodtruckListPage() {
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   const [foodtrucks, setFoodtrucks] = useState([]);
+  const {isLoggedIn, user, LogOutUser} = useContext(AuthContext);
   const getAllFoodtrucks = () => {
     axios
       .get(`${API_URL}/api/foodtrucks`)
@@ -28,13 +30,15 @@ function FoodtruckListPage() {
 
   return (
     <Container className="FoodtruckListPage">
+     
       <Row>
-        {isLoggedIn && <AddFoodtruck refreshFoodtrucks={getAllFoodtrucks} />}
+      {isLoggedIn && 
+        <AddFoodtruck refreshFoodtrucks={getAllFoodtrucks} />
+        }
         <br />
-
         {foodtrucks.map((foodtruck) => (
           <Col key={foodtruck._id} xs={3} className="mb-5">
-            <FoodtruckCard {...foodtruck} />
+            <FoodtruckCard {...foodtruck}/>
           </Col>
         ))}
       </Row>
