@@ -4,6 +4,7 @@ function FoodtruckCard({ name, category, _id, owner, imageUrl }) {
   return (
     <Card className="FoodtruckCard card">
       <Card.Img variant="top" />
+      <img src={imageUrl}/>
       <Card.Body className="d-flex flex-column">
         <div className="d-flex mb-2 justify-content-between">
           <Card.Title className="mb-0 font-weight-bold">{name}</Card.Title>
@@ -14,8 +15,7 @@ function FoodtruckCard({ name, category, _id, owner, imageUrl }) {
           variant="success">
           See Details
         </Button>
-      </Card.Body>
-      <p style={{ maxWidth: "400px" }}>{imageUrl}</p>
+      </Card.Body>     
       <p style={{ maxWidth: "400px" }}>{category} </p>
       <p style={{ maxWidth: "400px" }}>{owner} </p>
     </Card>

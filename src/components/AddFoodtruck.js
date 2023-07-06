@@ -11,6 +11,8 @@ function AddFoodtruck(props) {
   const [category, setCategory] = useState("");
   const [owner, setOwner] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [isUploadingImage, setIsUploadingImage] = useState(false);
+
 
   // ******** this method handles the file upload ********
   const handleFileUpload = (e) => {
@@ -19,6 +21,7 @@ function AddFoodtruck(props) {
     // imageUrl => this name has to be the same as in the model since we pass
     // req.body to .create() method when creating a new movie in '/api/movies' POST route
     uploadData.append("imageUrl", e.target.files[0]);
+    setIsUploadingImage(true);
 
     service
       .uploadImage(uploadData)
@@ -26,21 +29,27 @@ function AddFoodtruck(props) {
         // response carries "fileUrl" which we can use to update the state
         setImageUrl(response.fileUrl);
       })
-      .catch((err) => console.log("Error while uploading the file: ", err));
+      .catch((err) => console.log("Error while uploading the file: ", err))
+      .finally ( () => {
+        setIsUploadingImage(false);
+      });
   };
 
   function handleSubmit(e) {
     e.preventDefault();
-    const requestBody = { name, category, owner, imageUrl };
-
+    const requestBody = { name, category, owner, imageUrl:imageUrl };
+    const storedToken = localStorage.getItem("authToken");
+    
     axios
-      .post(`${API_URL}/api/foodtrucks`, requestBody)
+      .post(`${API_URL}/api/foodtrucks`, requestBody, {
+        headers: { Authorization: `Bearer ${storedToken}` }})
       .then((response) => {
         // Reset the state
         setName("");
         setCategory("");
         setOwner("");
         setImageUrl("");
+        
         props.refreshFoodtrucks();
       })
       .catch((error) => console.log(error));
@@ -50,6 +59,7 @@ function AddFoodtruck(props) {
     <Container className="AddFoodtruck">
       <Form onSubmit={handleSubmit}>
         <Row className="mb-3">
+       
           <label>Name:</label>
           <input
             type="text"
@@ -58,6 +68,7 @@ function AddFoodtruck(props) {
             onChange={(e) => setName(e.target.value)}
             required
           />
+          
         </Row>
 
         <Row className="mb-3">
@@ -88,8 +99,11 @@ function AddFoodtruck(props) {
             onChange={(e) => handleFileUpload(e)}
           />
         </Row>
-
-        <Button type="submit">Submit</Button>
+        {isUploadingImage
+        ? <button type="button" disabled>Uploading image...</button>
+        : <Button type="submit">Submit</Button>
+      }
+        
       </Form>
       <br />
     </Container>

@@ -13,7 +13,7 @@ import EditFoodTruck from "../components/EditFoodtruckModal";
 const API_URL = process.env.REACT_APP_SERVER_URL;
 
 function FoodtruckDetailsPage() {
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const { isLoggedIn, owner, logOutUser } = useContext(AuthContext);
   const [foodtruck, setFoodtruck] = useState({});
   const { foodtruckId } = useParams();
 

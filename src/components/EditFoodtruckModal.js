@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
+import { AuthContext } from "../context/auth.context";
+
 
 const API_URL = process.env.REACT_APP_SERVER_URL;
 
@@ -17,6 +19,8 @@ function EditFoodTruck(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const reload = () => window.location.reload();
+  const { user } = useContext(AuthContext);
+  const [createdBy, setCreatedBy] = useState("");
 
   useEffect(() => {
     axios
@@ -26,6 +30,7 @@ function EditFoodTruck(props) {
         setName(oneFoodtruck.name);
         setCategory(oneFoodtruck.category);
         setOwner(oneFoodtruck.owner);
+        setCreatedBy(oneFoodtruck.createdBy);
       })
       .catch((error) => console.log(error));
   }, [foodtruckId]);
@@ -53,8 +58,11 @@ function EditFoodTruck(props) {
   return (
     <div className="mb-2">
       <Button variant="primary" size="lg" onClick={handleShow}>
+    <>
+    {user._id === createdBy && <Button variant="primary" onClick={handleShow}>
         Edit FoodTruck
-      </Button>
+      </Button>}
+      
 
       <Modal show={show} onHide={handleClose} onExit={reload}>
         <Modal.Header closeButton>
