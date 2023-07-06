@@ -10,12 +10,15 @@ import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import EditFoodTruck from "../components/EditFoodtruckModal";
 
+
 const API_URL = process.env.REACT_APP_SERVER_URL;
 
 function FoodtruckDetailsPage() {
-  const { isLoggedIn, owner, logOutUser } = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
   const [foodtruck, setFoodtruck] = useState({});
   const { foodtruckId } = useParams();
+  const { user } = useContext(AuthContext);
+  const [createdBy, setCreatedBy] = useState("");
 
   const getFoodtruck = () => {
     axios
@@ -24,6 +27,7 @@ function FoodtruckDetailsPage() {
         console.log(response.data);
         const oneFoodtruck = response.data;
         setFoodtruck(oneFoodtruck);
+        setCreatedBy(oneFoodtruck.createdBy);
       })
       .catch((error) => console.log(error));
   };
@@ -32,16 +36,19 @@ function FoodtruckDetailsPage() {
     getFoodtruck();
   }, []);
 
+console.log("user", user);
   // note : add forms for edit and add button
   return (
     <Container className="FoodtruckDetails">
       <Row>
         {foodtruck && (
           <>
-            <h1>{foodtruck.name}</h1>
-            <p>{foodtruck.category}</p>
-            <p>{foodtruck.owner}</p>
-            {isLoggedIn && <EditFoodTruck />}
+          <h1>{foodtruck.name}</h1>
+          <img src={foodtruck.imageUrl}/>
+           
+            <p>Category: {foodtruck.category}</p>
+            <p>Owner: {foodtruck.owner}</p>
+            {isLoggedIn && <EditFoodTruck createdBy={createdBy} />}
           </>
         )}
 

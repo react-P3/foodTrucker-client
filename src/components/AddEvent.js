@@ -25,9 +25,9 @@ function AddEvent(props) {
       date,
       foodtruckId,
     };
-
+    const token = localStorage.getItem("authToken")
     axios
-      .post(`${API_URL}/api/events`, requestBody)
+      .post(`${API_URL}/api/events`, requestBody, {headers: {Authorization:`Bearer ${token}` }})
       .then((response) => {
         // Reset the state
         setName("");

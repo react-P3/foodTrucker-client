@@ -29,12 +29,14 @@ function EditEvent({ id }) {
       .get(`${API_URL}/api/events/${id}`)
       .then((response) => {
         const oneEvent = response.data;
+        console.log(response.data);
         setName(oneEvent.name);
         setDescription(oneEvent.description);
         setLocation(oneEvent.location);
         setAddress(oneEvent.address);
         setTime(oneEvent.time);
         setDate(oneEvent.date);
+        setCreatedBy(oneEvent.createdBy);
       })
       .catch((error) => console.log(error));
   }, [id]);
@@ -66,12 +68,14 @@ function EditEvent({ id }) {
       .catch((err) => console.log(err));
   };
 
+ console.log("user", user._id);
+ console.log("createdBy", createdBy);
   return (
-    <>{user._id === createdBy &&
+    <> {user._id === createdBy &&
       <Button variant="primary" onClick={handleShow}>
         Edit Event
       </Button>}
-
+     
       <Modal show={show} onHide={handleClose} onExit={reload}>
         <Modal.Header closeButton>
           <Modal.Title>Edit Your Food Truck</Modal.Title>

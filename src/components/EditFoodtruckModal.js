@@ -20,7 +20,6 @@ function EditFoodTruck(props) {
   const handleShow = () => setShow(true);
   const reload = () => window.location.reload();
   const { user } = useContext(AuthContext);
-  const [createdBy, setCreatedBy] = useState("");
 
   useEffect(() => {
     axios
@@ -30,7 +29,7 @@ function EditFoodTruck(props) {
         setName(oneFoodtruck.name);
         setCategory(oneFoodtruck.category);
         setOwner(oneFoodtruck.owner);
-        setCreatedBy(oneFoodtruck.createdBy);
+        
       })
       .catch((error) => console.log(error));
   }, [foodtruckId]);
@@ -55,9 +54,10 @@ function EditFoodTruck(props) {
       .catch((err) => console.log(err));
   };
 
+  console.log("prop", props.createdBy)
   return (
     <>
-    {user._id === createdBy && <Button variant="primary" onClick={handleShow}>
+    {user._id === props.createdBy && <Button variant="primary" onClick={handleShow}>
         Edit FoodTruck
       </Button>}
       
