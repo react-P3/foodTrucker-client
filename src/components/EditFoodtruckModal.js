@@ -6,7 +6,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { AuthContext } from "../context/auth.context";
 
-
 const API_URL = process.env.REACT_APP_SERVER_URL;
 
 function EditFoodTruck(props) {
@@ -57,6 +56,14 @@ function EditFoodTruck(props) {
   console.log("prop", props.createdBy)
   return (
     <>
+      <div className="mb-2">
+        {user._id === createdBy && (
+          <Button variant="primary" onClick={handleShow}>
+            Edit FoodTruck
+          </Button>
+        )}
+      </div>
+
     {user._id === props.createdBy && <Button variant="primary" onClick={handleShow}>
         Edit FoodTruck
       </Button>}
