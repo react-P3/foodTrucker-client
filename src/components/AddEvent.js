@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import Container from "react-bootstrap/Container";
-import { Button, Row, Form } from "react-bootstrap";
+import { Button, Row, Form, Col } from "react-bootstrap";
 
 const API_URL = process.env.REACT_APP_SERVER_URL;
 
@@ -48,64 +48,70 @@ function AddEvent(props) {
 
       <Form xs="auto" onSubmit={handleSubmit}>
         <Row>
-          <label>Name:</label>
-          <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </Row>
+          <Col>
+            <label>Name:</label>
+            <input
+              type="text"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </Col>
 
-        <Row>
-          <label>Description:</label>
-          <textarea
-            type="text"
-            name="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </Row>
+          <Col>
+            <label>Description:</label>
+            <input
+              type="text"
+              name="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </Col>
 
-        <Row>
-          <label>Location:</label>
-          <input
-            type="text"
-            name="Location"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-          />
-        </Row>
+          <Col>
+            <label>Location:</label>
+            <input
+              type="text"
+              name="Location"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+            />
+          </Col>
 
-        <Row>
-          <label>Address:</label>
-          <input
-            type="text"
-            name="Address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-          />
-        </Row>
-        <Row>
-          <label>Time:</label>
-          <input
-            type="text"
-            name="Time"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
-          />
-        </Row>
-        <Row>
-          <label>Date:</label>
-          <input
-            type="date"
-            name="Date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
-        </Row>
+          <Col>
+            <label>Address:</label>
+            <input
+              type="text"
+              name="Address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            />
+          </Col>
 
-        <Button type="submit">Submit</Button>
+          <Col>
+            <label>Time:</label>
+            <input
+              type="text"
+              name="Time"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
+            />
+          </Col>
+          <Col>
+            <label>Date:</label>
+            <input
+              type="date"
+              name="Date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </Col>
+        </Row>
+        <br />
+
+        <Button type="submit" size="lg">
+          Submit
+        </Button>
       </Form>
     </Container>
   );

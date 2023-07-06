@@ -51,8 +51,8 @@ function EditFoodTruck(props) {
   };
 
   return (
-    <>
-      <Button variant="primary" onClick={handleShow}>
+    <div className="mb-2">
+      <Button variant="primary" size="lg" onClick={handleShow}>
         Edit FoodTruck
       </Button>
 
@@ -114,7 +114,7 @@ function EditFoodTruck(props) {
           </Button>
         </Modal.Footer>
       </Modal>
-    </>
+    </div>
   );
 }
 

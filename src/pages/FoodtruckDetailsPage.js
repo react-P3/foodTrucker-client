@@ -40,6 +40,7 @@ function FoodtruckDetailsPage() {
           <>
             <h1>{foodtruck.name}</h1>
             <p>{foodtruck.category}</p>
+            <p>{foodtruck.owner}</p>
             {isLoggedIn && <EditFoodTruck />}
           </>
         )}
