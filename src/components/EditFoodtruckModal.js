@@ -14,6 +14,7 @@ function EditFoodTruck(props) {
   const [owner, setOwner] = useState("");
   const [show, setShow] = useState(false);
   const { foodtruckId } = useParams();
+  const [createdBy, setCreatedBy] = useState("")
   const navigate = useNavigate();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
