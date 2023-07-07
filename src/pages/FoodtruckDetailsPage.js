@@ -40,13 +40,17 @@ function FoodtruckDetailsPage() {
   // note : add forms for edit and add button
   return (
     <Container className="FoodtruckDetails">
-      <br />
       <Row>
         {foodtruck && (
           <>
             <h1>{foodtruck.name}</h1>
             <Col xs={12}>
-              <Image src={foodtruck.imageUrl} fluid rounded />
+              <Image
+                style={{ width: "18rem" }}
+                src={foodtruck.imageUrl}
+                fluid
+                rounded
+              />
             </Col>
 
             <h5>Category: {foodtruck.category}</h5>
@@ -64,6 +68,7 @@ function FoodtruckDetailsPage() {
         {foodtruck.events &&
           foodtruck.events.map((event) => (
             <Col key={event._id} xs={3} className="mb-5">
+              <br />
               <EventCard {...event} />
             </Col>
           ))}

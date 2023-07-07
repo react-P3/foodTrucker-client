@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { AuthContext } from "../context/auth.context";
+import { Container } from "react-bootstrap";
 
 const API_URL = process.env.REACT_APP_SERVER_URL;
 
@@ -55,7 +56,7 @@ function EditFoodTruck(props) {
 
   console.log("prop", props.createdBy);
   return (
-    <>
+    <Container>
       {user._id === props.createdBy && (
         <Button variant="success" size="lg" onClick={handleShow}>
           Edit FoodTruck
@@ -120,7 +121,7 @@ function EditFoodTruck(props) {
           </Button>
         </Modal.Footer>
       </Modal>
-    </>
+    </Container>
   );
 }
 
