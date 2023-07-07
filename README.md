@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# FoodTrucker - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+This repository contains the frontend code for FoodTrucker, a platform that helps you find food trucks in your neighborhood and the upcoming events where you can catch them. Whether you're looking for a bite to eat in your next music concert, or you just want to know where your favorite FoodTruck is parked, FoodTruck is here to connect you with local providers. The frontend is built using React and interacts with the backend API, which can be found in the [backend repository](https://github.com/react-P3/foodTrucker-server).
 
-In the project directory, you can run:
+## Instructions to run this app on your computer
 
-### `npm start`
+### Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clone this repository to your local machine.
+2. Navigate to the project's root directory.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Dependencies
 
-### `npm test`
+Ensure that you have all the required environment variables properly configured.
+Install the required dependencies by running the following command:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```shell
+npm install axios@1.4.0 bootstrap@5.3.0 react@18.2.0 react-bootstrap@2.8.0 react-dom@18.2.0 react-icons@4.10.1 react-router-dom@6.14.0 react-scripts@5.0.1 react-star-rate@0.2.0 web-vitals@2.1.4
+```
 
-### `npm run build`
+### Run the application
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Start the development server and open the application in your default browser by running the following command:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```shell
+npm run start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This command will compile the code, start the development server, and automatically launch the application in your default browser.
 
-### `npm run eject`
+### Demo
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Feel free to explore the platform and discover your favorite Food truck and their upcoming events.
+Please refer to the backend repository's documentation for information on setting up and running the backend server.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Access the deployed version of FoodTrucker using the following links:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+https://foodtrucker.netlify.app/
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+https://foodtrucker-api.adaptable.app/
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Joao & Carolin
