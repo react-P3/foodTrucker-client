@@ -6,6 +6,7 @@ import EventCard from "../components/EventCard";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Image from "react-bootstrap/Image";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import EditFoodTruck from "../components/EditFoodtruckModal";
@@ -44,10 +45,12 @@ function FoodtruckDetailsPage() {
         {foodtruck && (
           <>
             <h1>{foodtruck.name}</h1>
-            <img src={foodtruck.imageUrl} />
+            <Col xs={12}>
+              <Image src={foodtruck.imageUrl} fluid rounded />
+            </Col>
 
-            <p>Category: {foodtruck.category}</p>
-            <p>Owner: {foodtruck.owner}</p>
+            <h5>Category: {foodtruck.category}</h5>
+            <h5>Owner: {foodtruck.owner}</h5>
             {isLoggedIn && <EditFoodTruck createdBy={createdBy} />}
           </>
         )}

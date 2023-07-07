@@ -16,6 +16,8 @@ function AddFoodtruck(props) {
 
   // ******** this method handles the file upload ********
   const handleFileUpload = (e) => {
+    console.log("Image path", e.target.files[0]);
+    e.preventDefault();
     const uploadData = new FormData();
 
     // imageUrl => this name has to be the same as in the model since we pass
@@ -26,6 +28,7 @@ function AddFoodtruck(props) {
     service
       .uploadImage(uploadData)
       .then((response) => {
+        console.log("image", response.data);
         // response carries "fileUrl" which we can use to update the state
         setImageUrl(response.fileUrl);
       })

@@ -71,9 +71,9 @@ function EditEvent({ id }) {
   console.log("createdBy", createdBy);
   return (
     <>
-      {" "}
+      <br />{" "}
       {user._id === createdBy && (
-        <Button variant="success" onClick={handleShow}>
+        <Button variant="warning" onClick={handleShow}>
           Edit Event
         </Button>
       )}
