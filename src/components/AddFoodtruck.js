@@ -61,7 +61,7 @@ function AddFoodtruck(props) {
       <Form onSubmit={handleSubmit}>
         <Row className="mb-3">
           <Col>
-            <label>Name</label>
+            <label>NAME</label>
             <input
               className="form-control mt-1"
               type="text"
@@ -73,7 +73,7 @@ function AddFoodtruck(props) {
           </Col>
 
           <Col>
-            <label>Category</label>
+            <label>CATEGORY</label>
             <input
               className="form-control mt-1"
               type="text"
@@ -84,7 +84,7 @@ function AddFoodtruck(props) {
             />
           </Col>
           <Col>
-            <label>Owner</label>
+            <label>OWNER</label>
             <input
               className="form-control mt-1"
               type="text"
@@ -96,7 +96,7 @@ function AddFoodtruck(props) {
           </Col>
 
           <Col>
-            <label>Image</label>
+            <label>IMAGE</label>
             <input
               className="form-control mt-1"
               type="file"
