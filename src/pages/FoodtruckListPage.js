@@ -12,7 +12,7 @@ const API_URL = process.env.REACT_APP_SERVER_URL;
 function FoodtruckListPage() {
   const [foodtrucks, setFoodtrucks] = useState([]);
 
-  const {isLoggedIn, user, LogOutUser} = useContext(AuthContext);
+  const { isLoggedIn, user, LogOutUser } = useContext(AuthContext);
   const getAllFoodtrucks = () => {
     axios
       .get(`${API_URL}/api/foodtrucks`)
@@ -28,15 +28,14 @@ function FoodtruckListPage() {
 
   return (
     <Container className="FoodtruckListPage">
-     
+      <br />
+      <br />
       <Row>
-      {isLoggedIn && 
-        <AddFoodtruck refreshFoodtrucks={getAllFoodtrucks} />
-        }
+        {isLoggedIn && <AddFoodtruck refreshFoodtrucks={getAllFoodtrucks} />}
         <br />
         {foodtrucks.map((foodtruck) => (
           <Col key={foodtruck._id} xs={3} className="mb-5">
-            <FoodtruckCard {...foodtruck}/>
+            <FoodtruckCard {...foodtruck} />
           </Col>
         ))}
       </Row>

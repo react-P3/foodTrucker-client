@@ -1,8 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 import Container from "react-bootstrap/Container";
-import { Button, Row, Form } from "react-bootstrap";
+import { Button, Row, Form, Col } from "react-bootstrap";
 import service from "../api/service";
+import { DropdownButton, Dropdown } from "react-bootstrap";
 
 const API_URL = process.env.REACT_APP_SERVER_URL;
 
@@ -12,7 +13,6 @@ function AddFoodtruck(props) {
   const [owner, setOwner] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [isUploadingImage, setIsUploadingImage] = useState(false);
-
 
   // ******** this method handles the file upload ********
   const handleFileUpload = (e) => {
@@ -30,26 +30,27 @@ function AddFoodtruck(props) {
         setImageUrl(response.fileUrl);
       })
       .catch((err) => console.log("Error while uploading the file: ", err))
-      .finally ( () => {
+      .finally(() => {
         setIsUploadingImage(false);
       });
   };
 
   function handleSubmit(e) {
     e.preventDefault();
-    const requestBody = { name, category, owner, imageUrl:imageUrl };
+    const requestBody = { name, category, owner, imageUrl: imageUrl };
     const storedToken = localStorage.getItem("authToken");
-    
+
     axios
       .post(`${API_URL}/api/foodtrucks`, requestBody, {
-        headers: { Authorization: `Bearer ${storedToken}` }})
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
       .then((response) => {
         // Reset the state
         setName("");
         setCategory("");
         setOwner("");
         setImageUrl("");
-        
+
         props.refreshFoodtrucks();
       })
       .catch((error) => console.log(error));
@@ -59,51 +60,60 @@ function AddFoodtruck(props) {
     <Container className="AddFoodtruck">
       <Form onSubmit={handleSubmit}>
         <Row className="mb-3">
-       
-          <label>Name:</label>
-          <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-          
-        </Row>
+          <Col>
+            <label>Name</label>
+            <input
+              className="form-control mt-1"
+              type="text"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </Col>
 
-        <Row className="mb-3">
-          <label>Category:</label>
-          <textarea
-            type="text"
-            name="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            required
-          />
-        </Row>
-        <Row className="mb-3">
-          <label>Owner:</label>
-          <input
-            type="text"
-            name="Owner"
-            value={owner}
-            onChange={(e) => setOwner(e.target.value)}
-            required
-          />
-        </Row>
+          <Col>
+            <label>Category</label>
+            <input
+              className="form-control mt-1"
+              type="text"
+              name="category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              required
+            />
+          </Col>
+          <Col>
+            <label>Owner</label>
+            <input
+              className="form-control mt-1"
+              type="text"
+              name="Owner"
+              value={owner}
+              onChange={(e) => setOwner(e.target.value)}
+              required
+            />
+          </Col>
 
-        <Row className="mb-3">
-          <input
-            type="file"
-            name="Image"
-            onChange={(e) => handleFileUpload(e)}
-          />
+          <Col>
+            <label>Image</label>
+            <input
+              className="form-control mt-1"
+              type="file"
+              name="Image"
+              onChange={(e) => handleFileUpload(e)}
+            />
+          </Col>
         </Row>
-        {isUploadingImage
-        ? <button type="button" disabled>Uploading image...</button>
-        : <Button type="submit">Submit</Button>
-      }
-        
+        {isUploadingImage ? (
+          <button className="form-control mt-1" type="button" disabled>
+            Uploading image...
+          </button>
+        ) : (
+          <Button type="submit" variant="success" size="lg">
+            Add FoodTruck
+          </Button>
+        )}
       </Form>
       <br />
     </Container>

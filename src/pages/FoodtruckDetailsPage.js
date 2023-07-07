@@ -10,7 +10,6 @@ import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import EditFoodTruck from "../components/EditFoodtruckModal";
 
-
 const API_URL = process.env.REACT_APP_SERVER_URL;
 
 function FoodtruckDetailsPage() {
@@ -36,16 +35,17 @@ function FoodtruckDetailsPage() {
     getFoodtruck();
   }, []);
 
-console.log("user", user);
+  console.log("user", user);
   // note : add forms for edit and add button
   return (
     <Container className="FoodtruckDetails">
+      <br />
       <Row>
         {foodtruck && (
           <>
-          <h1>{foodtruck.name}</h1>
-          <img src={foodtruck.imageUrl}/>
-           
+            <h1>{foodtruck.name}</h1>
+            <img src={foodtruck.imageUrl} />
+
             <p>Category: {foodtruck.category}</p>
             <p>Owner: {foodtruck.owner}</p>
             {isLoggedIn && <EditFoodTruck createdBy={createdBy} />}

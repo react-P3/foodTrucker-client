@@ -68,20 +68,21 @@ function EditEvent({ id }) {
       .catch((err) => console.log(err));
   };
 
- console.log("user", user._id);
- console.log("createdBy", createdBy);
+  console.log("createdBy", createdBy);
   return (
-    <> {user._id === createdBy &&
-      <Button variant="primary" onClick={handleShow}>
-        Edit Event
-      </Button>}
-     
+    <>
+      {" "}
+      {user._id === createdBy && (
+        <Button variant="success" onClick={handleShow}>
+          Edit Event
+        </Button>
+      )}
       <Modal show={show} onHide={handleClose} onExit={reload}>
         <Modal.Header closeButton>
-          <Modal.Title>Edit Your Food Truck</Modal.Title>
+          <Modal.Title>Edit Your Event</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form className="Auth-form" onSubmit={handleFormSubmit}>
+          <form onSubmit={handleFormSubmit}>
             <div className="Auth-form-content">
               <div className="form-group mt-3">
                 <label>Name</label>
@@ -162,7 +163,7 @@ function EditEvent({ id }) {
           <Button variant="danger" onClick={deleteEvent}>
             Delete event
           </Button>
-          <Button variant="primary" onClick={handleFormSubmit}>
+          <Button variant="success" onClick={handleFormSubmit}>
             Save Changes
           </Button>
         </Modal.Footer>

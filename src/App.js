@@ -8,7 +8,6 @@ import { Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/Navbar";
 import { Toaster } from "react-hot-toast";
-import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -25,8 +24,6 @@ function App() {
         <Route path="/signup" element={<SignupPage />}></Route>
         <Route path="/login" element={<LoginPage />}></Route>
       </Routes>
-      <Footer/>
-      
     </div>
   );
 }

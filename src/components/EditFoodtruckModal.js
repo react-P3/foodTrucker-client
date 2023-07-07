@@ -14,7 +14,7 @@ function EditFoodTruck(props) {
   const [owner, setOwner] = useState("");
   const [show, setShow] = useState(false);
   const { foodtruckId } = useParams();
-  const [createdBy, setCreatedBy] = useState("")
+  const [createdBy, setCreatedBy] = useState("");
   const navigate = useNavigate();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -29,7 +29,6 @@ function EditFoodTruck(props) {
         setName(oneFoodtruck.name);
         setCategory(oneFoodtruck.category);
         setOwner(oneFoodtruck.owner);
-        
       })
       .catch((error) => console.log(error));
   }, [foodtruckId]);
@@ -54,28 +53,21 @@ function EditFoodTruck(props) {
       .catch((err) => console.log(err));
   };
 
-  console.log("prop", props.createdBy)
+  console.log("prop", props.createdBy);
   return (
     <>
-      <div className="mb-2">
-        {user._id === createdBy && (
-          <Button variant="primary" onClick={handleShow}>
-            Edit FoodTruck
-          </Button>
-        )}
-      </div>
-
-    {user._id === props.createdBy && <Button variant="primary" onClick={handleShow}>
-        Edit FoodTruck
-      </Button>}
-      
+      {user._id === props.createdBy && (
+        <Button variant="success" size="lg" onClick={handleShow}>
+          Edit FoodTruck
+        </Button>
+      )}
 
       <Modal show={show} onHide={handleClose} onExit={reload}>
         <Modal.Header closeButton>
-          <Modal.Title>Edit Your Food Truck</Modal.Title>
+          <Modal.Title>Edit Your FoodTruck</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form className="Auth-form" onSubmit={handleFormSubmit}>
+          <form onSubmit={handleFormSubmit}>
             <div className="Auth-form-content">
               <div className="form-group mt-3">
                 <label>Name</label>
@@ -123,7 +115,7 @@ function EditFoodTruck(props) {
           <Button variant="danger" onClick={deleteFoodtruck}>
             Delete FoodTruck
           </Button>
-          <Button variant="primary" onClick={handleFormSubmit}>
+          <Button variant="success" onClick={handleFormSubmit}>
             Save Changes
           </Button>
         </Modal.Footer>

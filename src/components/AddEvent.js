@@ -25,9 +25,11 @@ function AddEvent(props) {
       date,
       foodtruckId,
     };
-    const token = localStorage.getItem("authToken")
+    const token = localStorage.getItem("authToken");
     axios
-      .post(`${API_URL}/api/events`, requestBody, {headers: {Authorization:`Bearer ${token}` }})
+      .post(`${API_URL}/api/events`, requestBody, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((response) => {
         // Reset the state
         setName("");
@@ -44,13 +46,12 @@ function AddEvent(props) {
 
   return (
     <Container className="AddEvent">
-      <h3>Add Event</h3>
-
       <Form xs="auto" onSubmit={handleSubmit}>
         <Row>
           <Col>
-            <label>Name:</label>
+            <label>Name</label>
             <input
+              className="form-control mt-1"
               type="text"
               name="name"
               value={name}
@@ -59,8 +60,9 @@ function AddEvent(props) {
           </Col>
 
           <Col>
-            <label>Description:</label>
+            <label>Description</label>
             <input
+              className="form-control mt-1"
               type="text"
               name="description"
               value={description}
@@ -69,8 +71,9 @@ function AddEvent(props) {
           </Col>
 
           <Col>
-            <label>Location:</label>
+            <label>Location</label>
             <input
+              className="form-control mt-1"
               type="text"
               name="Location"
               value={location}
@@ -79,8 +82,9 @@ function AddEvent(props) {
           </Col>
 
           <Col>
-            <label>Address:</label>
+            <label>Address</label>
             <input
+              className="form-control mt-1"
               type="text"
               name="Address"
               value={address}
@@ -89,8 +93,9 @@ function AddEvent(props) {
           </Col>
 
           <Col>
-            <label>Time:</label>
+            <label>Time</label>
             <input
+              className="form-control mt-1"
               type="text"
               name="Time"
               value={time}
@@ -98,8 +103,9 @@ function AddEvent(props) {
             />
           </Col>
           <Col>
-            <label>Date:</label>
+            <label>Date</label>
             <input
+              className="form-control mt-1"
               type="date"
               name="Date"
               value={date}
@@ -109,8 +115,8 @@ function AddEvent(props) {
         </Row>
         <br />
 
-        <Button type="submit" size="lg">
-          Submit
+        <Button variant="success" type="submit" size="lg">
+          Add an Event
         </Button>
       </Form>
     </Container>

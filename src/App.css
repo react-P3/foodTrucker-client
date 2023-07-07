@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  background-color: rgb(114, 110, 110);
+}
+.Nav.Link {
+  font-size: large;
 }
 
 .App-logo {

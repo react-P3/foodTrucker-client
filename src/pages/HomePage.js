@@ -1,8 +1,13 @@
+import { Container, Row, Col, Image } from "react-bootstrap";
 function HomePage() {
   return (
-    <div>
-      <h1>Home Page</h1>
-    </div>
+    <Container>
+      <Row>
+        <Col>
+          <Image src="./public/trytrytry.jpeg/100px250" fluid />
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

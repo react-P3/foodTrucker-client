@@ -8,13 +8,13 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 function NavBar(props) {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-danger">
       <Container>
-        <Navbar.Brand href="/">Food Trucker</Navbar.Brand>
+        <Navbar.Brand href="/">FOODTRUCKER</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="/foodtrucks">Find a Food Truck</Nav.Link>
+          <Nav className="ms-auto">
+            <Nav.Link href="/foodtrucks">Find a FoodTruck</Nav.Link>
             <NavDropdown title="User" id="basic-nav-dropdown">
               {!isLoggedIn && (
                 <>
