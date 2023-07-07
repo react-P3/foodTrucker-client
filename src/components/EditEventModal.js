@@ -72,7 +72,7 @@ function EditEvent({ id }) {
   return (
     <>
       <br />{" "}
-      {user._id === createdBy && (
+      {user && user._id === createdBy && (
         <Button variant="warning" onClick={handleShow}>
           Edit Event
         </Button>
