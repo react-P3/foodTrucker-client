@@ -4,7 +4,7 @@ function FoodtruckCard({ name, category, _id, owner, imageUrl }) {
   return (
     <Card className="FoodtruckCard card" bg="warning">
       <Card.Img variant="top" />
-      <img src={imageUrl} />
+      <img src={imageUrl} style={{ height: "15rem" }} />
       <Card.Body className="d-flex flex-column">
         <div className="d-flex mb-2 justify-content-center">
           <Card.Title className="mb-0 font-weight-bold">{name}</Card.Title>

@@ -46,7 +46,7 @@ function FoodtruckDetailsPage() {
             <h1>{foodtruck.name}</h1>
             <Col xs={12}>
               <Image
-                style={{ width: "18rem" }}
+                style={{ width: "25rem" }}
                 src={foodtruck.imageUrl}
                 fluid
                 rounded
