@@ -10,6 +10,7 @@ function HomePage() {
           <Image
             src="https://images.pexels.com/photos/1766682/pexels-photo-1766682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             className="img-fluid shadow-4"
+            rounded
             alt="foodtruck"
           />
         </Col>
