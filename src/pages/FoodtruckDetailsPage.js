@@ -53,8 +53,14 @@ function FoodtruckDetailsPage() {
               />
             </Col>
 
-            <h5>Category: {foodtruck.category}</h5>
-            <h5>Owner: {foodtruck.owner}</h5>
+            <Col className="mb-1">
+              <br />
+              <h5>CATEGORY// {foodtruck.category}</h5>
+
+              <br />
+              <h5>OWNER// {foodtruck.owner}</h5>
+              <br />
+            </Col>
             {isLoggedIn && <EditFoodTruck createdBy={createdBy} />}
           </>
         )}

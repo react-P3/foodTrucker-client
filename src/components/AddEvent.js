@@ -49,7 +49,8 @@ function AddEvent(props) {
       <Form xs="auto" onSubmit={handleSubmit}>
         <Row>
           <Col>
-            <label>Name</label>
+            <br />
+            <label>NAME</label>
             <input
               className="form-control mt-1"
               type="text"
@@ -60,7 +61,8 @@ function AddEvent(props) {
           </Col>
 
           <Col>
-            <label>Description</label>
+            <br />
+            <label>DESCRIPTION</label>
             <input
               className="form-control mt-1"
               type="text"
@@ -71,7 +73,8 @@ function AddEvent(props) {
           </Col>
 
           <Col>
-            <label>Location</label>
+            <br />
+            <label>LOCATION</label>
             <input
               className="form-control mt-1"
               type="text"
@@ -82,7 +85,8 @@ function AddEvent(props) {
           </Col>
 
           <Col>
-            <label>Address</label>
+            <br />
+            <label>ADRESS</label>
             <input
               className="form-control mt-1"
               type="text"
@@ -93,7 +97,8 @@ function AddEvent(props) {
           </Col>
 
           <Col>
-            <label>Time</label>
+            <br />
+            <label>TIME</label>
             <input
               className="form-control mt-1"
               type="text"
@@ -103,7 +108,8 @@ function AddEvent(props) {
             />
           </Col>
           <Col>
-            <label>Date</label>
+            <br />
+            <label>DATE</label>
             <input
               className="form-control mt-1"
               type="date"
